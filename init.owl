@@ -14,6 +14,12 @@
 #    Object Properties
 #################################################################
 
+###  https://ourgroup.domain/property#hasCategory
+<https://ourgroup.domain/property#hasCategory> rdf:type owl:ObjectProperty ;
+                                               rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                               rdfs:range <https://ourgroup.domain/entity/Category> .
+
+
 ###  https://ourgroup.domain/property#hasCharacter
 <https://ourgroup.domain/property#hasCharacter> rdf:type owl:ObjectProperty ;
                                                 rdfs:subPropertyOf owl:topObjectProperty ;
@@ -42,6 +48,12 @@
                                               rdfs:range <https://ourgroup.domain/entity/Emotion> .
 
 
+###  https://ourgroup.domain/property#hasEvent
+<https://ourgroup.domain/property#hasEvent> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                            rdfs:range <https://ourgroup.domain/entity/Event> .
+
+
 ###  https://ourgroup.domain/property#hasGender
 <https://ourgroup.domain/property#hasGender> rdf:type owl:ObjectProperty ;
                                              rdfs:subPropertyOf owl:topObjectProperty ;
@@ -52,7 +64,8 @@
 ###  https://ourgroup.domain/property#hasGenre
 <https://ourgroup.domain/property#hasGenre> rdf:type owl:ObjectProperty ;
                                             rdfs:subPropertyOf owl:topObjectProperty ;
-                                            rdfs:domain <https://ourgroup.domain/entity/Story> .
+                                            rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                            rdfs:range <https://ourgroup.domain/entity/Genre> .
 
 
 ###  https://ourgroup.domain/property#hasIllustration
@@ -169,6 +182,10 @@ oge:ConcreteEntity rdf:type owl:Class ;
                                                rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
 
 
+###  https://ourgroup.domain/entity/Category
+<https://ourgroup.domain/entity/Category> rdf:type owl:Class .
+
+
 ###  https://ourgroup.domain/entity/Character
 <https://ourgroup.domain/entity/Character> rdf:type owl:Class ;
                                            rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
@@ -187,6 +204,11 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/ChildrenStory
 <https://ourgroup.domain/entity/ChildrenStory> rdf:type owl:Class ;
                                                rdfs:subClassOf <https://ourgroup.domain/entity/Story> .
+
+
+###  https://ourgroup.domain/entity/ChildrensLiteratureCategory
+<https://ourgroup.domain/entity/ChildrensLiteratureCategory> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <https://ourgroup.domain/entity/Category> .
 
 
 ###  https://ourgroup.domain/entity/Climax
@@ -288,6 +310,10 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/Friendship
 <https://ourgroup.domain/entity/Friendship> rdf:type owl:Class ;
                                             rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/Genre
+<https://ourgroup.domain/entity/Genre> rdf:type owl:Class .
 
 
 ###  https://ourgroup.domain/entity/GoodVersusEvil
