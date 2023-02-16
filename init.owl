@@ -1,0 +1,559 @@
+@prefix : <http://www.semanticweb.org/joey/ontologies/2023/1/untitled-ontology-24#> .
+@prefix oge: <http://ourgroup.domain/entity/> .
+@prefix ogp: <http://ourgroup.domain/property#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ourgroup.domain/ontologies/2023/1/init> .
+
+<http://ourgroup.domain/ontologies/2023/1/init> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://ourgroup.domain/property#hasCharacter
+<https://ourgroup.domain/property#hasCharacter> rdf:type owl:ObjectProperty ;
+                                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                                rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                                rdfs:range <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/property#hasConflict
+<https://ourgroup.domain/property#hasConflict> rdf:type owl:ObjectProperty ;
+                                               rdfs:subPropertyOf owl:topObjectProperty ;
+                                               rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                               rdfs:range <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/property#hasDeliveryMethod
+<https://ourgroup.domain/property#hasDeliveryMethod> rdf:type owl:ObjectProperty ;
+                                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                                     rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                                     rdfs:range <https://ourgroup.domain/entity/DeliveryMethod> .
+
+
+###  https://ourgroup.domain/property#hasEmotion
+<https://ourgroup.domain/property#hasEmotion> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                              rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                              rdfs:range <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/property#hasGender
+<https://ourgroup.domain/property#hasGender> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf owl:topObjectProperty ;
+                                             rdfs:domain <https://ourgroup.domain/entity/Human> ;
+                                             rdfs:range <https://ourgroup.domain/schema#Gender> .
+
+
+###  https://ourgroup.domain/property#hasGenre
+<https://ourgroup.domain/property#hasGenre> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf owl:topObjectProperty ;
+                                            rdfs:domain <https://ourgroup.domain/entity/Story> .
+
+
+###  https://ourgroup.domain/property#hasIllustration
+<https://ourgroup.domain/property#hasIllustration> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                                   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                                   rdfs:range <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/property#hasPlot
+<https://ourgroup.domain/property#hasPlot> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf owl:topObjectProperty ;
+                                           rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                           rdfs:range <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/property#hasResolution
+<https://ourgroup.domain/property#hasResolution> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                                 rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                                 rdfs:range <https://ourgroup.domain/entity/Resolution> .
+
+
+###  https://ourgroup.domain/property#hasSetting
+<https://ourgroup.domain/property#hasSetting> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                              rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                              rdfs:range <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/property#hasTheme
+<https://ourgroup.domain/property#hasTheme> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf owl:topObjectProperty ;
+                                            rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                            rdfs:range <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/schema#hasAge
+<https://ourgroup.domain/schema#hasAge> rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf owl:topObjectProperty ;
+                                        rdfs:domain <https://ourgroup.domain/entity/Human> ;
+                                        rdfs:range <https://ourgroup.domain/schema#Age> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ourgroup.domain/entity/AbstractEntity
+oge:AbstractEntity rdf:type owl:Class ;
+                   rdfs:subClassOf <https://ourgroup.domain/entity/Entity> ;
+                   owl:disjointWith oge:ConcreteEntity .
+
+
+###  http://ourgroup.domain/entity/ConcreteEntity
+oge:ConcreteEntity rdf:type owl:Class ;
+                   rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+
+
+###  https://ourgroup.domain/entity/AbstractCharacter
+<https://ourgroup.domain/entity/AbstractCharacter> rdf:type owl:Class ;
+                                                   rdfs:subClassOf oge:AbstractEntity ,
+                                                                   <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/Action
+<https://ourgroup.domain/entity/Action> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/ActionIllustration
+<https://ourgroup.domain/entity/ActionIllustration> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Adult
+<https://ourgroup.domain/entity/Adult> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Human> ;
+                                       owl:disjointWith <https://ourgroup.domain/entity/Children> .
+
+
+###  https://ourgroup.domain/entity/Adventure
+<https://ourgroup.domain/entity/Adventure> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/AmbiguousResolution
+<https://ourgroup.domain/entity/AmbiguousResolution> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Resolution> .
+
+
+###  https://ourgroup.domain/entity/Anger
+<https://ourgroup.domain/entity/Anger> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Antagonist
+<https://ourgroup.domain/entity/Antagonist> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/Audience
+<https://ourgroup.domain/entity/Audience> rdf:type owl:Class ;
+                                          rdfs:subClassOf oge:ConcreteEntity .
+
+
+###  https://ourgroup.domain/entity/BackgroundIllustration
+<https://ourgroup.domain/entity/BackgroundIllustration> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Bildungsroman
+<https://ourgroup.domain/entity/Bildungsroman> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Character
+<https://ourgroup.domain/entity/Character> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+
+
+###  https://ourgroup.domain/entity/CharacterIllustration
+<https://ourgroup.domain/entity/CharacterIllustration> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Children
+<https://ourgroup.domain/entity/Children> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://ourgroup.domain/entity/Human> .
+
+
+###  https://ourgroup.domain/entity/ChildrenStory
+<https://ourgroup.domain/entity/ChildrenStory> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://ourgroup.domain/entity/Story> .
+
+
+###  https://ourgroup.domain/entity/Climax
+<https://ourgroup.domain/entity/Climax> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+
+
+###  https://ourgroup.domain/entity/Comedy
+<https://ourgroup.domain/entity/Comedy> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/ComingOfAge
+<https://ourgroup.domain/entity/ComingOfAge> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/ConcreteCharacter
+<https://ourgroup.domain/entity/ConcreteCharacter> rdf:type owl:Class ;
+                                                   rdfs:subClassOf oge:ConcreteEntity ,
+                                                                   <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/Conflict
+<https://ourgroup.domain/entity/Conflict> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/Courage
+<https://ourgroup.domain/entity/Courage> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/DeliveryMethod
+<https://ourgroup.domain/entity/DeliveryMethod> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/Disgust
+<https://ourgroup.domain/entity/Disgust> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Drama
+<https://ourgroup.domain/entity/Drama> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Emotion
+<https://ourgroup.domain/entity/Emotion> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/EmotionalIllustration
+<https://ourgroup.domain/entity/EmotionalIllustration> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Entity
+<https://ourgroup.domain/entity/Entity> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/Event
+<https://ourgroup.domain/entity/Event> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/EventIllustration
+<https://ourgroup.domain/entity/EventIllustration> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Excitement
+<https://ourgroup.domain/entity/Excitement> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/FallingAction
+<https://ourgroup.domain/entity/FallingAction> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+
+
+###  https://ourgroup.domain/entity/Family
+<https://ourgroup.domain/entity/Family> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/Fantasy
+<https://ourgroup.domain/entity/Fantasy> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/FantasySetting
+<https://ourgroup.domain/entity/FantasySetting> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/Fear
+<https://ourgroup.domain/entity/Fear> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Friendship
+<https://ourgroup.domain/entity/Friendship> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/GoodVersusEvil
+<https://ourgroup.domain/entity/GoodVersusEvil> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/Happiness
+<https://ourgroup.domain/entity/Happiness> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Historical
+<https://ourgroup.domain/entity/Historical> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/HistoricalSetting
+<https://ourgroup.domain/entity/HistoricalSetting> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/Horror
+<https://ourgroup.domain/entity/Horror> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Human
+<https://ourgroup.domain/entity/Human> rdf:type owl:Class ;
+                                       rdfs:subClassOf oge:ConcreteEntity .
+
+
+###  https://ourgroup.domain/entity/Illustration
+<https://ourgroup.domain/entity/Illustration> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/Jealousy
+<https://ourgroup.domain/entity/Jealousy> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Love
+<https://ourgroup.domain/entity/Love> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/MinorCharacter
+<https://ourgroup.domain/entity/MinorCharacter> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/Moral
+<https://ourgroup.domain/entity/Moral> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Mystery
+<https://ourgroup.domain/entity/Mystery> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/NaturalSetting
+<https://ourgroup.domain/entity/NaturalSetting> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/NegativeResolution
+<https://ourgroup.domain/entity/NegativeResolution> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://ourgroup.domain/entity/Resolution> .
+
+
+###  https://ourgroup.domain/entity/OpenEndedResolution
+<https://ourgroup.domain/entity/OpenEndedResolution> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Resolution> .
+
+
+###  https://ourgroup.domain/entity/Oral
+<https://ourgroup.domain/entity/Oral> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://ourgroup.domain/entity/DeliveryMethod> .
+
+
+###  https://ourgroup.domain/entity/OvercomingObstacles
+<https://ourgroup.domain/entity/OvercomingObstacles> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/PersonAgainstMachine
+<https://ourgroup.domain/entity/PersonAgainstMachine> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/entity/PersonAgainstNature
+<https://ourgroup.domain/entity/PersonAgainstNature> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/entity/PersonAgainstPerson
+<https://ourgroup.domain/entity/PersonAgainstPerson> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/entity/PersonAgainstSelf
+<https://ourgroup.domain/entity/PersonAgainstSelf> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/entity/PersonAgainstSociety
+<https://ourgroup.domain/entity/PersonAgainstSociety> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://ourgroup.domain/entity/Conflict> .
+
+
+###  https://ourgroup.domain/entity/Plot
+<https://ourgroup.domain/entity/Plot> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/PositiveResolution
+<https://ourgroup.domain/entity/PositiveResolution> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://ourgroup.domain/entity/Resolution> .
+
+
+###  https://ourgroup.domain/entity/Protagonist
+<https://ourgroup.domain/entity/Protagonist> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/RealisticFiction
+<https://ourgroup.domain/entity/RealisticFiction> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Resolution
+<https://ourgroup.domain/entity/Resolution> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/RisingAction
+<https://ourgroup.domain/entity/RisingAction> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+
+
+###  https://ourgroup.domain/entity/Romance
+<https://ourgroup.domain/entity/Romance> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/RuralSetting
+<https://ourgroup.domain/entity/RuralSetting> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/Sadness
+<https://ourgroup.domain/entity/Sadness> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/ScienceFiction
+<https://ourgroup.domain/entity/ScienceFiction> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/SelfDiscovery
+<https://ourgroup.domain/entity/SelfDiscovery> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/Setting
+<https://ourgroup.domain/entity/Setting> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/SettingIllustration
+<https://ourgroup.domain/entity/SettingIllustration> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Illustration> .
+
+
+###  https://ourgroup.domain/entity/Shame
+<https://ourgroup.domain/entity/Shame> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Story
+<https://ourgroup.domain/entity/Story> rdf:type owl:Class ;
+                                       rdfs:subClassOf oge:ConcreteEntity .
+
+
+###  https://ourgroup.domain/entity/SupportingCharacter
+<https://ourgroup.domain/entity/SupportingCharacter> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+
+
+###  https://ourgroup.domain/entity/Surprise
+<https://ourgroup.domain/entity/Surprise> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://ourgroup.domain/entity/Emotion> .
+
+
+###  https://ourgroup.domain/entity/Theme
+<https://ourgroup.domain/entity/Theme> rdf:type owl:Class .
+
+
+###  https://ourgroup.domain/entity/Thriller
+<https://ourgroup.domain/entity/Thriller> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/Tragedy
+<https://ourgroup.domain/entity/Tragedy> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Plot> .
+
+
+###  https://ourgroup.domain/entity/UrbanSetting
+<https://ourgroup.domain/entity/UrbanSetting> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/Video
+<https://ourgroup.domain/entity/Video> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://ourgroup.domain/entity/Oral> ,
+                                                       <https://ourgroup.domain/entity/Visual> .
+
+
+###  https://ourgroup.domain/entity/Visual
+<https://ourgroup.domain/entity/Visual> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/DeliveryMethod> .
+
+
+###  https://ourgroup.domain/entity/Written
+<https://ourgroup.domain/entity/Written> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://ourgroup.domain/entity/Visual> .
+
+
+###  https://ourgroup.domain/schema#Age
+<https://ourgroup.domain/schema#Age> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+
+
+###  https://ourgroup.domain/schema#Gender
+<https://ourgroup.domain/schema#Gender> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://ourgroup.domain/entity/ActionIllustration>
+                <https://ourgroup.domain/entity/BackgroundIllustration>
+                <https://ourgroup.domain/entity/CharacterIllustration>
+                <https://ourgroup.domain/entity/EmotionalIllustration>
+                <https://ourgroup.domain/entity/EventIllustration>
+                <https://ourgroup.domain/entity/SettingIllustration>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://ourgroup.domain/entity/Conflict>
+                <https://ourgroup.domain/entity/DeliveryMethod>
+                <https://ourgroup.domain/entity/Emotion>
+                <https://ourgroup.domain/entity/Entity>
+                <https://ourgroup.domain/entity/Event>
+                <https://ourgroup.domain/entity/Illustration>
+                <https://ourgroup.domain/entity/Plot>
+                <https://ourgroup.domain/entity/Resolution>
+                <https://ourgroup.domain/entity/Setting>
+                <https://ourgroup.domain/entity/Theme>
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
