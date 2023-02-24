@@ -424,7 +424,6 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/CHAR0010
 <https://ourgroup.domain/entity/CHAR0010> rdf:type owl:NamedIndividual ,
                                                    <https://ourgroup.domain/entity/Antagonist> ;
-                                          <https://ourgroup.domain/property#hasCharacter> <https://ourgroup.domain/entity/CHAR0012> ;
                                           rdfs:label "Anastasia"@en .
 
 
@@ -818,6 +817,13 @@ oge:ConcreteEntity rdf:type owl:Class ;
                 <https://ourgroup.domain/entity/Setting>
                 <https://ourgroup.domain/entity/Theme>
               )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <https://ourgroup.domain/entity/CHAR0007>
+                        <https://ourgroup.domain/entity/S0011>
+                      )
 ] .
 
 
