@@ -1,0 +1,335 @@
+@prefix : <http://api.stardog.com/> .
+@prefix stardog: <tag:stardog:api:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://ourgroup.domain/ontologies/2023/1/init> a owl:Ontology .
+<https://ourgroup.domain/property#hasAudience> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Audience> .
+<https://ourgroup.domain/entity/Story> a owl:Class ;
+   rdfs:subClassOf <http://ourgroup.domain/entity/ConcreteEntity> .
+<https://ourgroup.domain/entity/Audience> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Human> .
+<https://ourgroup.domain/property#hasCategory> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Category> .
+<https://ourgroup.domain/entity/Category> a owl:Class .
+<https://ourgroup.domain/property#hasCharacter> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Character> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Character> a owl:Class ;
+   rdfs:subClassOf <http://ourgroup.domain/entity/AbstractEntity> , <http://ourgroup.domain/entity/ConcreteEntity> .
+<https://ourgroup.domain/property#hasConflict> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Conflict> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Conflict> a owl:Class .
+<https://ourgroup.domain/property#hasDeliveryMethod> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/DeliveryMethod> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/DeliveryMethod> a owl:Class .
+<https://ourgroup.domain/property#hasEmotion> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Emotion> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Emotion> a owl:Class .
+<https://ourgroup.domain/property#hasEvent> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Event> .
+<https://ourgroup.domain/entity/Event> a owl:Class .
+<https://ourgroup.domain/property#hasGender> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Human> ;
+   rdfs:range <https://ourgroup.domain/schema#Gender> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Human> a owl:Class ;
+   rdfs:subClassOf <http://ourgroup.domain/entity/ConcreteEntity> .
+<https://ourgroup.domain/schema#Gender> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/HumanProperty> .
+<https://ourgroup.domain/property#hasGenre> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Genre> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Genre> a owl:Class .
+<https://ourgroup.domain/property#hasIllustration> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Illustration> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Illustration> a owl:Class .
+<https://ourgroup.domain/property#hasPlot> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Plot> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Plot> a owl:Class .
+<https://ourgroup.domain/property#hasResolution> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Resolution> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Resolution> a owl:Class .
+<https://ourgroup.domain/property#hasSetting> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Setting> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Setting> a owl:Class .
+<https://ourgroup.domain/property#hasTheme> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Story> ;
+   rdfs:range <https://ourgroup.domain/entity/Theme> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/entity/Theme> a owl:Class .
+<https://ourgroup.domain/schema#hasAge> a owl:ObjectProperty ;
+   rdfs:domain <https://ourgroup.domain/entity/Human> ;
+   rdfs:range <https://ourgroup.domain/schema#Age> ;
+   rdfs:subPropertyOf owl:topObjectProperty .
+<https://ourgroup.domain/schema#Age> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/HumanProperty> .
+<http://ourgroup.domain/entity/AbstractEntity> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Entity> ;
+   owl:disjointWith <http://ourgroup.domain/entity/ConcreteEntity> .
+<https://ourgroup.domain/entity/Entity> a owl:Class .
+<http://ourgroup.domain/entity/ConcreteEntity> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+<https://ourgroup.domain/entity/Adult> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Human> ;
+   owl:disjointWith <https://ourgroup.domain/entity/Children> .
+<https://ourgroup.domain/entity/Children> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Human> .
+<https://ourgroup.domain/entity/Antagonist> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+<https://ourgroup.domain/entity/ChildrenStory> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Story> .
+<https://ourgroup.domain/entity/ChildrensLiteratureCategory> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Category> .
+<https://ourgroup.domain/entity/Climax> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+<https://ourgroup.domain/entity/FallingAction> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+<https://ourgroup.domain/entity/HumanProperty> a owl:Class .
+<https://ourgroup.domain/entity/MinorCharacter> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+<https://ourgroup.domain/entity/Oral> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/DeliveryMethod> .
+<https://ourgroup.domain/entity/Protagonist> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+<https://ourgroup.domain/entity/RisingAction> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
+<https://ourgroup.domain/entity/SupportingCharacter> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Character> .
+<https://ourgroup.domain/entity/Video> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Oral> , <https://ourgroup.domain/entity/Visual> .
+<https://ourgroup.domain/entity/Visual> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/DeliveryMethod> .
+<https://ourgroup.domain/entity/Written> a owl:Class ;
+   rdfs:subClassOf <https://ourgroup.domain/entity/Visual> .
+<https://ourgroup.domain/entity/AGE000> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "0"@en .
+<https://ourgroup.domain/entity/AGE012> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "12"@en .
+<https://ourgroup.domain/entity/AGE018> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "18"@en .
+<https://ourgroup.domain/entity/AGE026> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "26"@en .
+<https://ourgroup.domain/entity/AGE065> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "65"@en .
+<https://ourgroup.domain/entity/AGE999> a <https://ourgroup.domain/schema#Age> , owl:NamedIndividual ;
+   rdfs:label "999"@en .
+<https://ourgroup.domain/entity/Action> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/ActionIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Adventure> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/AmbiguousResolution> a <https://ourgroup.domain/entity/Resolution> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Anger> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/AudioVisual> a <https://ourgroup.domain/entity/Video> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/BackgroundIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Bildungsroman> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/CHAR0001> a <https://ourgroup.domain/entity/Protagonist> , owl:NamedIndividual ;
+   rdfs:label "The caterpillar"@en .
+<https://ourgroup.domain/entity/CHAR0002> a <https://ourgroup.domain/entity/Protagonist> , owl:NamedIndividual ;
+   rdfs:label "The beautiful butterfly"@en .
+<https://ourgroup.domain/entity/CHAR0003> a owl:NamedIndividual ;
+   rdfs:label "Lyra Belacqua"@en .
+<https://ourgroup.domain/entity/CHAR0004> a owl:NamedIndividual ;
+   rdfs:label "Lord Asriel"@en .
+<https://ourgroup.domain/entity/CHAR0005> a owl:NamedIndividual ;
+   rdfs:label "Marisa Coutler"@en .
+<https://ourgroup.domain/entity/CHAR0006> a owl:NamedIndividual ;
+   rdfs:label "Iorek Byrnison"@en .
+<https://ourgroup.domain/entity/CHAR0007> a <https://ourgroup.domain/entity/Protagonist> , owl:NamedIndividual ;
+   rdfs:label "Cinderella"@en .
+<https://ourgroup.domain/entity/CHAR0008> a <https://ourgroup.domain/entity/SupportingCharacter> , owl:NamedIndividual ;
+   rdfs:label "Prince Kit Charming"@en .
+<https://ourgroup.domain/entity/CHAR0009> a <https://ourgroup.domain/entity/MinorCharacter> , owl:NamedIndividual ;
+   rdfs:label "Gus"@en .
+<https://ourgroup.domain/entity/CHAR0010> a <https://ourgroup.domain/entity/Antagonist> , owl:NamedIndividual ;
+   rdfs:label "Anastasia"@en .
+<https://ourgroup.domain/entity/CHAR0011> a <https://ourgroup.domain/entity/MinorCharacter> , owl:NamedIndividual ;
+   rdfs:label "Lucifer"@en .
+<https://ourgroup.domain/entity/CHAR0012> a <https://ourgroup.domain/entity/Antagonist> , owl:NamedIndividual ;
+   rdfs:label "Lady Tremaine"@en .
+<https://ourgroup.domain/entity/CHAR0013> a <https://ourgroup.domain/entity/SupportingCharacter> , owl:NamedIndividual ;
+   rdfs:label "Fairy Godmother"@en .
+<https://ourgroup.domain/entity/CHAR0014> a <https://ourgroup.domain/entity/Antagonist> , owl:NamedIndividual ;
+   rdfs:label "Drizella"@en .
+<https://ourgroup.domain/entity/CharacterIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Comedy> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/ComingOfAge> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/CourageTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Drama> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/EmotionalIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/EventIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Excitement> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/FamilyTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Fantasy> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/FantasySetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Fear> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/FindingRealLove> a <https://ourgroup.domain/entity/Plot> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/FindingTreasure> a <https://ourgroup.domain/entity/Plot> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/FriendshipTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/GEN001> a <https://ourgroup.domain/schema#Gender> , owl:NamedIndividual ;
+   rdfs:label "Male"@en .
+<https://ourgroup.domain/entity/GEN002> a <https://ourgroup.domain/schema#Gender> , owl:NamedIndividual ;
+   rdfs:label "Female"@en .
+<https://ourgroup.domain/entity/GEN003> a <https://ourgroup.domain/schema#Gender> , owl:NamedIndividual ;
+   rdfs:label "Non-binary"@en .
+<https://ourgroup.domain/entity/GettingBackToPower> a <https://ourgroup.domain/entity/Plot> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/GoodVersusEvilTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Happiness> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Historical> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/HistoricalSetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Horror> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Jealousy> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Love> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Mistery> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Moral> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/NaturalSetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/NegativeResolution> a <https://ourgroup.domain/entity/Resolution> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/OpenEndedResolution> a <https://ourgroup.domain/entity/Resolution> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/OvercomingObstaclesTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PersonAgainstMachine> a <https://ourgroup.domain/entity/Conflict> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PersonAgainstNature> a <https://ourgroup.domain/entity/Conflict> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PersonAgainstPerson> a <https://ourgroup.domain/entity/Conflict> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PersonAgainstSelf> a <https://ourgroup.domain/entity/Conflict> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PersonAgainstSociety> a <https://ourgroup.domain/entity/Conflict> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/PositiveResolution> a <https://ourgroup.domain/entity/Resolution> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/RealisticFiction> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Romance> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/RuralSetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/S0001> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The Very Hungry Caterpillar"@en .
+<https://ourgroup.domain/entity/S0002> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "Northern Lights"@en .
+<https://ourgroup.domain/entity/S0003> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The Hunger Games"@en .
+<https://ourgroup.domain/entity/S0004> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The BFG"@en .
+<https://ourgroup.domain/entity/S0005> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "Harry Potter and the Philosopher's Stone"@en .
+<https://ourgroup.domain/entity/S0006> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The Cat in the Hat"@en .
+<https://ourgroup.domain/entity/S0007> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "Winnie-the-Pooh"@en .
+<https://ourgroup.domain/entity/S0008> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "Charlotte's Web"@en .
+<https://ourgroup.domain/entity/S0009> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The Lion, the Witch, and the Wardrobe"@en .
+<https://ourgroup.domain/entity/S0010> a <https://ourgroup.domain/entity/Story> , owl:NamedIndividual ;
+   rdfs:label "The Fellowship of the Ring"@en .
+<https://ourgroup.domain/entity/S0011> a <https://ourgroup.domain/entity/Story> , <https://ourgroup.domain/entity/ChildrenStory> , owl:NamedIndividual ;
+   <https://ourgroup.domain/property#hasCharacter> <https://ourgroup.domain/entity/CHAR0008> , <https://ourgroup.domain/entity/CHAR0009> , <https://ourgroup.domain/entity/CHAR0010> , <https://ourgroup.domain/entity/CHAR0011> , <https://ourgroup.domain/entity/CHAR0012> , <https://ourgroup.domain/entity/CHAR0013> , <https://ourgroup.domain/entity/CHAR0014> , <https://ourgroup.domain/entity/S0011> ;
+   <https://ourgroup.domain/property#hasEmotion> <https://ourgroup.domain/entity/Jealousy> , <https://ourgroup.domain/entity/Love> , <https://ourgroup.domain/entity/Sadness> , <https://ourgroup.domain/entity/Shame> ;
+   <https://ourgroup.domain/property#hasPlot> <https://ourgroup.domain/entity/FindingRealLove> ;
+   <https://ourgroup.domain/property#hasResolution> <https://ourgroup.domain/entity/PositiveResolution> ;
+   <https://ourgroup.domain/property#hasTheme> <https://ourgroup.domain/entity/GoodVersusEvilTheme> ;
+   rdfs:label "Cinderella"@en .
+<https://ourgroup.domain/entity/Sadness> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Shame> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/SciFi> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/ScifiSetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/SelfDiscoveryTheme> a <https://ourgroup.domain/entity/Theme> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/SettingIllustration> a <https://ourgroup.domain/entity/Illustration> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Surprise> a <https://ourgroup.domain/entity/Emotion> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/TacklingChallenges> a <https://ourgroup.domain/entity/Plot> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Thriller> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/Tragedy> a <https://ourgroup.domain/entity/Genre> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/UrbanSetting> a <https://ourgroup.domain/entity/Setting> , owl:NamedIndividual .
+<https://ourgroup.domain/entity/WinningAgainstDevils> a <https://ourgroup.domain/entity/Plot> , owl:NamedIndividual .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_441 a owl:AllDisjointClasses ;
+   owl:members _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_442 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_442 rdf:first <https://ourgroup.domain/entity/Conflict> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_443 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_443 rdf:first <https://ourgroup.domain/entity/DeliveryMethod> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_444 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_444 rdf:first <https://ourgroup.domain/entity/Emotion> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_445 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_445 rdf:first <https://ourgroup.domain/entity/Entity> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_446 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_446 rdf:first <https://ourgroup.domain/entity/Event> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_447 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_447 rdf:first <https://ourgroup.domain/entity/Illustration> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_448 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_448 rdf:first <https://ourgroup.domain/entity/Plot> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_449 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_449 rdf:first <https://ourgroup.domain/entity/Resolution> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_450 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_450 rdf:first <https://ourgroup.domain/entity/Setting> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_451 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_451 rdf:first <https://ourgroup.domain/entity/Theme> ;
+   rdf:rest rdf:nil .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_452 a owl:AllDisjointClasses ;
+   owl:members _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_453 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_453 rdf:first <https://ourgroup.domain/entity/Conflict> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_454 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_454 rdf:first <https://ourgroup.domain/entity/DeliveryMethod> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_455 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_455 rdf:first <https://ourgroup.domain/entity/Emotion> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_456 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_456 rdf:first <https://ourgroup.domain/entity/Entity> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_457 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_457 rdf:first <https://ourgroup.domain/entity/Event> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_458 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_458 rdf:first <https://ourgroup.domain/entity/Illustration> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_459 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_459 rdf:first <https://ourgroup.domain/entity/Plot> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_460 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_460 rdf:first <https://ourgroup.domain/entity/Resolution> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_461 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_461 rdf:first <https://ourgroup.domain/entity/Setting> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_462 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_462 rdf:first <https://ourgroup.domain/entity/Theme> ;
+   rdf:rest rdf:nil .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_463 a owl:AllDifferent ;
+   owl:distinctMembers _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_464 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_464 rdf:first <https://ourgroup.domain/entity/CHAR0007> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_465 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_465 rdf:first <https://ourgroup.domain/entity/S0011> ;
+   rdf:rest rdf:nil .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_466 a owl:AllDisjointClasses ;
+   owl:members _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_467 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_467 rdf:first <https://ourgroup.domain/entity/Conflict> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_468 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_468 rdf:first <https://ourgroup.domain/entity/DeliveryMethod> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_469 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_469 rdf:first <https://ourgroup.domain/entity/Emotion> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_470 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_470 rdf:first <https://ourgroup.domain/entity/Entity> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_471 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_471 rdf:first <https://ourgroup.domain/entity/Event> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_472 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_472 rdf:first <https://ourgroup.domain/entity/Illustration> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_473 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_473 rdf:first <https://ourgroup.domain/entity/Plot> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_474 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_474 rdf:first <https://ourgroup.domain/entity/Resolution> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_475 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_475 rdf:first <https://ourgroup.domain/entity/Setting> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_476 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_476 rdf:first <https://ourgroup.domain/entity/Theme> ;
+   rdf:rest rdf:nil .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_477 a owl:AllDifferent ;
+   owl:distinctMembers _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_478 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_478 rdf:first <https://ourgroup.domain/entity/CHAR0007> ;
+   rdf:rest _:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_479 .
+_:bnode_2187e1d7_7781_4d23_b445_d85589fbcca4_479 rdf:first <https://ourgroup.domain/entity/S0011> ;
+   rdf:rest rdf:nil .
