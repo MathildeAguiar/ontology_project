@@ -366,6 +366,11 @@ oge:ConcreteEntity rdf:type owl:Class ;
                                                                  <https://ourgroup.domain/entity/Illustration> .
 
 
+###  https://ourgroup.domain/entity/Bedtime
+<https://ourgroup.domain/entity/Bedtime> rdf:type owl:NamedIndividual ,
+                                                  <https://ourgroup.domain/entity/Oral> .
+
+
 ###  https://ourgroup.domain/entity/Bildungsroman
 <https://ourgroup.domain/entity/Bildungsroman> rdf:type owl:NamedIndividual ,
                                                         <https://ourgroup.domain/entity/Genre> .
@@ -524,6 +529,11 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/FriendshipTheme
 <https://ourgroup.domain/entity/FriendshipTheme> rdf:type owl:NamedIndividual ,
                                                           <https://ourgroup.domain/entity/Theme> .
+
+
+###  https://ourgroup.domain/entity/FromHateToLove
+<https://ourgroup.domain/entity/FromHateToLove> rdf:type owl:NamedIndividual ,
+                                                         <https://ourgroup.domain/entity/RisingAction> .
 
 
 ###  https://ourgroup.domain/entity/GEN001
@@ -731,12 +741,17 @@ oge:ConcreteEntity rdf:type owl:Class ;
                                                                                        <https://ourgroup.domain/entity/CHAR0013> ,
                                                                                        <https://ourgroup.domain/entity/CHAR0014> ,
                                                                                        <https://ourgroup.domain/entity/S0011> ;
+                                       <https://ourgroup.domain/property#hasConflict> <https://ourgroup.domain/entity/PersonAgainstPerson> ;
+                                       <https://ourgroup.domain/property#hasDeliveryMethod> <https://ourgroup.domain/entity/Bedtime> ;
                                        <https://ourgroup.domain/property#hasEmotion> <https://ourgroup.domain/entity/Jealousy> ,
                                                                                      <https://ourgroup.domain/entity/Love> ,
                                                                                      <https://ourgroup.domain/entity/Sadness> ,
                                                                                      <https://ourgroup.domain/entity/Shame> ;
+                                       <https://ourgroup.domain/property#hasEvent> <https://ourgroup.domain/entity/FromHateToLove> ;
+                                       <https://ourgroup.domain/property#hasIllustration> <https://ourgroup.domain/entity/CharacterIllustration> ;
                                        <https://ourgroup.domain/property#hasPlot> <https://ourgroup.domain/entity/FindingRealLove> ;
                                        <https://ourgroup.domain/property#hasResolution> <https://ourgroup.domain/entity/PositiveResolution> ;
+                                       <https://ourgroup.domain/property#hasSetting> <https://ourgroup.domain/entity/FantasySetting> ;
                                        <https://ourgroup.domain/property#hasTheme> <https://ourgroup.domain/entity/GoodVersusEvilTheme> ;
                                        rdfs:label "Cinderella"@en .
 
