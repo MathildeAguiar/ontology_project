@@ -14,6 +14,12 @@
 #    Object Properties
 #################################################################
 
+###  https://ourgroup.domain/property#hasAudience
+<https://ourgroup.domain/property#hasAudience> rdf:type owl:ObjectProperty ;
+                                               rdfs:domain <https://ourgroup.domain/entity/Story> ;
+                                               rdfs:range <https://ourgroup.domain/entity/Audience> .
+
+
 ###  https://ourgroup.domain/property#hasCategory
 <https://ourgroup.domain/property#hasCategory> rdf:type owl:ObjectProperty ;
                                                rdfs:domain <https://ourgroup.domain/entity/Story> ;
@@ -125,12 +131,6 @@ oge:ConcreteEntity rdf:type owl:Class ;
                    rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
 
 
-###  https://ourgroup.domain/entity/AbstractCharacter
-<https://ourgroup.domain/entity/AbstractCharacter> rdf:type owl:Class ;
-                                                   rdfs:subClassOf oge:AbstractEntity ,
-                                                                   <https://ourgroup.domain/entity/Character> .
-
-
 ###  https://ourgroup.domain/entity/Adult
 <https://ourgroup.domain/entity/Adult> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://ourgroup.domain/entity/Human> ;
@@ -153,7 +153,8 @@ oge:ConcreteEntity rdf:type owl:Class ;
 
 ###  https://ourgroup.domain/entity/Character
 <https://ourgroup.domain/entity/Character> rdf:type owl:Class ;
-                                           rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+                                           rdfs:subClassOf oge:AbstractEntity ,
+                                                           oge:ConcreteEntity .
 
 
 ###  https://ourgroup.domain/entity/Children
@@ -174,12 +175,6 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/Climax
 <https://ourgroup.domain/entity/Climax> rdf:type owl:Class ;
                                         rdfs:subClassOf <https://ourgroup.domain/entity/Event> .
-
-
-###  https://ourgroup.domain/entity/ConcreteCharacter
-<https://ourgroup.domain/entity/ConcreteCharacter> rdf:type owl:Class ;
-                                                   rdfs:subClassOf oge:ConcreteEntity ,
-                                                                   <https://ourgroup.domain/entity/Character> .
 
 
 ###  https://ourgroup.domain/entity/Conflict
@@ -300,6 +295,36 @@ oge:ConcreteEntity rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  https://ourgroup.domain/entity/AGE000
+<https://ourgroup.domain/entity/AGE000> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
+###  https://ourgroup.domain/entity/AGE012
+<https://ourgroup.domain/entity/AGE012> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
+###  https://ourgroup.domain/entity/AGE018
+<https://ourgroup.domain/entity/AGE018> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
+###  https://ourgroup.domain/entity/AGE026
+<https://ourgroup.domain/entity/AGE026> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
+###  https://ourgroup.domain/entity/AGE065
+<https://ourgroup.domain/entity/AGE065> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
+###  https://ourgroup.domain/entity/AGE999
+<https://ourgroup.domain/entity/AGE999> rdf:type owl:NamedIndividual ,
+                                                 <https://ourgroup.domain/schema#Age> .
+
+
 ###  https://ourgroup.domain/entity/Action
 <https://ourgroup.domain/entity/Action> rdf:type owl:NamedIndividual ,
                                                  <https://ourgroup.domain/entity/Genre> .
@@ -338,6 +363,86 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/Bildungsroman
 <https://ourgroup.domain/entity/Bildungsroman> rdf:type owl:NamedIndividual ,
                                                         <https://ourgroup.domain/entity/Genre> .
+
+
+###  https://ourgroup.domain/entity/CHAR0001
+<https://ourgroup.domain/entity/CHAR0001> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Protagonist> ;
+                                          rdfs:label "The caterpillar"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0002
+<https://ourgroup.domain/entity/CHAR0002> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Protagonist> ;
+                                          rdfs:label "The beautiful butterfly"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0003
+<https://ourgroup.domain/entity/CHAR0003> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "Lyra Belacqua"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0004
+<https://ourgroup.domain/entity/CHAR0004> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "Lord Asriel"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0005
+<https://ourgroup.domain/entity/CHAR0005> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "Marisa Coutler"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0006
+<https://ourgroup.domain/entity/CHAR0006> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "Iorek Byrnison"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0007
+<https://ourgroup.domain/entity/CHAR0007> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Protagonist> ;
+                                          rdfs:label "Cinderella"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0008
+<https://ourgroup.domain/entity/CHAR0008> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/SupportingCharacter> ;
+                                          rdfs:label "Prince Kit Charming"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0009
+<https://ourgroup.domain/entity/CHAR0009> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/MinorCharacter> ;
+                                          rdfs:label "Gus"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0010
+<https://ourgroup.domain/entity/CHAR0010> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Antagonist> ;
+                                          rdfs:label "Anastasia"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0011
+<https://ourgroup.domain/entity/CHAR0011> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/MinorCharacter> ;
+                                          rdfs:label "Lucifer"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0012
+<https://ourgroup.domain/entity/CHAR0012> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Antagonist> ;
+                                          rdfs:label "Lady Tremaine"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0013
+<https://ourgroup.domain/entity/CHAR0013> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/SupportingCharacter> ;
+                                          rdfs:label "Fairy Godmother"@en .
+
+
+###  https://ourgroup.domain/entity/CHAR0014
+<https://ourgroup.domain/entity/CHAR0014> rdf:type owl:NamedIndividual ,
+                                                   <https://ourgroup.domain/entity/Antagonist> ;
+                                          rdfs:label "Drizella"@en .
 
 
 ###  https://ourgroup.domain/entity/CharacterIllustration
@@ -528,6 +633,66 @@ oge:ConcreteEntity rdf:type owl:Class ;
 ###  https://ourgroup.domain/entity/RuralSetting
 <https://ourgroup.domain/entity/RuralSetting> rdf:type owl:NamedIndividual ,
                                                        <https://ourgroup.domain/entity/Setting> .
+
+
+###  https://ourgroup.domain/entity/S0001
+<https://ourgroup.domain/entity/S0001> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The Very Hungry Caterpillar"@en .
+
+
+###  https://ourgroup.domain/entity/S0002
+<https://ourgroup.domain/entity/S0002> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "Northern Lights"@en .
+
+
+###  https://ourgroup.domain/entity/S0003
+<https://ourgroup.domain/entity/S0003> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The Hunger Games"@en .
+
+
+###  https://ourgroup.domain/entity/S0004
+<https://ourgroup.domain/entity/S0004> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The BFG"@en .
+
+
+###  https://ourgroup.domain/entity/S0005
+<https://ourgroup.domain/entity/S0005> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "Harry Potter and the Philosopher's Stone"@en .
+
+
+###  https://ourgroup.domain/entity/S0006
+<https://ourgroup.domain/entity/S0006> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The Cat in the Hat"@en .
+
+
+###  https://ourgroup.domain/entity/S0007
+<https://ourgroup.domain/entity/S0007> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "Winnie-the-Pooh"@en .
+
+
+###  https://ourgroup.domain/entity/S0008
+<https://ourgroup.domain/entity/S0008> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "Charlotte's Web"@en .
+
+
+###  https://ourgroup.domain/entity/S0009
+<https://ourgroup.domain/entity/S0009> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The Lion, the Witch, and the Wardrobe"@en .
+
+
+###  https://ourgroup.domain/entity/S0010
+<https://ourgroup.domain/entity/S0010> rdf:type owl:NamedIndividual ,
+                                                <https://ourgroup.domain/entity/Story> ;
+                                       rdfs:label "The Fellowship of the Ring"@en .
 
 
 ###  https://ourgroup.domain/entity/Sadness
