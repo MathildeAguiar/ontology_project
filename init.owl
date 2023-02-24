@@ -144,7 +144,7 @@ oge:ConcreteEntity rdf:type owl:Class ;
 
 ###  https://ourgroup.domain/entity/Audience
 <https://ourgroup.domain/entity/Audience> rdf:type owl:Class ;
-                                          rdfs:subClassOf oge:ConcreteEntity .
+                                          rdfs:subClassOf <https://ourgroup.domain/entity/Human> .
 
 
 ###  https://ourgroup.domain/entity/Category
@@ -216,6 +216,10 @@ oge:ConcreteEntity rdf:type owl:Class ;
                                        rdfs:subClassOf oge:ConcreteEntity .
 
 
+###  https://ourgroup.domain/entity/HumanProperty
+<https://ourgroup.domain/entity/HumanProperty> rdf:type owl:Class .
+
+
 ###  https://ourgroup.domain/entity/Illustration
 <https://ourgroup.domain/entity/Illustration> rdf:type owl:Class .
 
@@ -284,12 +288,12 @@ oge:ConcreteEntity rdf:type owl:Class ;
 
 ###  https://ourgroup.domain/schema#Age
 <https://ourgroup.domain/schema#Age> rdf:type owl:Class ;
-                                     rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+                                     rdfs:subClassOf <https://ourgroup.domain/entity/HumanProperty> .
 
 
 ###  https://ourgroup.domain/schema#Gender
 <https://ourgroup.domain/schema#Gender> rdf:type owl:Class ;
-                                        rdfs:subClassOf <https://ourgroup.domain/entity/Entity> .
+                                        rdfs:subClassOf <https://ourgroup.domain/entity/HumanProperty> .
 
 
 #################################################################
